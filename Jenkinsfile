@@ -2,6 +2,7 @@ node{
   stage('Git Clone')
     checkout scm
   stage('Unit Test'){
-    sh " ${pwd} sudo python test.py"
+    sh "cd /var/lib/jenkins/workspace/python-1"
+    sh "python test.py"
 }
 }
