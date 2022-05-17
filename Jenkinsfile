@@ -2,6 +2,8 @@ node{
   stage('Git Clone')
     checkout scm
   stage('Unit Test'){
-    sh "python test.py"
+    sh "docker.build(python-test) ."
+    python-test.inside
+      {sh 'pyhon test.py'}
 }
 }
