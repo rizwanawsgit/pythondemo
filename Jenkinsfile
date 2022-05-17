@@ -1,10 +1,11 @@
 node{
-  stage('Git Clone')
+  stage('Git Clone'){
     checkout scm
+  }
   stage('Unit Test'){
-    def python = docker.build(python-test) .
-    python-test.inside{
-       sh 'pyhon test.py'
+    def testImage = docker.build("test-image", "-f Dockerfile-test") 
+    testImage.inside {
+        sh 'python test.py'
     }
 }
 }
