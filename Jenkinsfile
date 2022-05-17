@@ -3,7 +3,7 @@ node{
     checkout scm
   stage('Unit Test'){
     def python = docker.build(python-test) .
-    python.inside{
+    python-test.inside{
        sh 'pyhon test.py'
     }
 }
